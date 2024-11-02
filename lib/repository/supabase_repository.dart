@@ -42,4 +42,14 @@ class SupabaseRepository {
         await supabase.from('tasks').select().eq('task_group_id', groupId);
     return response.map((task) => Task.fromMap(task)).toList();
   }
+
+  Future createTask(Task task) async {
+    final supabase = Supabase.instance.client;
+    await supabase.from('tasks').insert(task.toMap());
+  }
+
+  Future deleteTask(String taskId) async {
+    final supabase = Supabase.instance.client;
+    await supabase.from('tasks').delete().eq('id', taskId);
+  }
 }
