@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/pages/task_group_list/widgets/task_group_item.dart';
-import 'package:todo_app/pages/task_list/task_list_page.dart';
 import 'package:todo_app/providers/task_group_provider.dart';
 
 class TaskGroupListPage extends StatelessWidget {

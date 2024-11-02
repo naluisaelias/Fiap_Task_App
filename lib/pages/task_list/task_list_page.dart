@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_app/pages/task_create/task_create_page.dart';
 import 'package:todo_app/pages/task_list/widgets/delete_task.dart';
 import 'package:todo_app/pages/task_list/widgets/task_widget.dart';
+import 'package:todo_app/pages/task_list/widgets/tasks_summary_widget.dart';
 import 'package:todo_app/providers/task_group_provider.dart';
 import 'package:todo_app/providers/task_provider.dart';
 
@@ -48,6 +49,17 @@ class _TaskListPageState extends State<TaskListPage> {
 
         return Column(
           children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+              child: TasksSummaryWidget(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Divider(
+                color: Colors.grey.shade300,
+                height: 1,
+              ),
+            ),
             Expanded(
                 child: ListView.builder(
                     itemCount: taskProvider.tasks.length,
