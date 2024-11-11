@@ -8,6 +8,7 @@ import 'package:todo_app/providers/task_provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // URL & AnonKey: Connection -> Mobile Frameworks -> Flutter
   await Supabase.initialize(
     url: '',
     anonKey: '',
