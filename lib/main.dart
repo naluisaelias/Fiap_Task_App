@@ -4,6 +4,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:todo_app/pages/home/home_page.dart';
 import 'package:todo_app/providers/task_group_provider.dart';
 import 'package:todo_app/providers/task_provider.dart';
+import 'package:todo_app/providers/theme_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +23,10 @@ Future<void> main() async {
       ChangeNotifierProvider(
         create: (_) => TaskProvider(),
       ),
+      // Add: Theme Provider
+      ChangeNotifierProvider(
+        create: (_) => ThemeProvider()
+        ),
     ],
     child: const MyApp(),
   ));
@@ -32,10 +37,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // Declarar Theme Provider
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Task APP',
-      themeMode: ThemeMode.light,
+      // Alterar Modo
+      themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       theme: ThemeData.light(
         useMaterial3: true,
       ),
