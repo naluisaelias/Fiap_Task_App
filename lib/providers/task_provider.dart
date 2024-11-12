@@ -43,4 +43,19 @@ class TaskProvider with ChangeNotifier {
       print(e);
     }
   }
+
+    Future<void> completeTask(Task task) async {
+    if (task.isCompleted) {
+      task.isCompleted = false;
+    } else {
+      task.isCompleted = true;
+    }
+    try {
+      await _repo.completeTask(task);
+      notifyListeners();
+    } catch (e) {
+      print(e);
+    }
+  }
+
 }

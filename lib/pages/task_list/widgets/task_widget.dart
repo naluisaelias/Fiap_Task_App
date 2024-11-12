@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/models/task_model.dart';
+import 'package:todo_app/providers/task_provider.dart';
 
 class TaskWidget extends StatelessWidget {
   const TaskWidget({super.key, required this.task, required this.color});
@@ -12,7 +14,9 @@ class TaskWidget extends StatelessWidget {
     return ListTile(
       onTap: () {},
       leading: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          context.read<TaskProvider>().completeTask(task);
+        },
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 600),
           decoration: BoxDecoration(
