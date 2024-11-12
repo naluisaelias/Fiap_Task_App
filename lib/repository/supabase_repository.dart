@@ -52,4 +52,9 @@ class SupabaseRepository {
     final supabase = Supabase.instance.client;
     await supabase.from('tasks').delete().eq('id', taskId);
   }
+
+  Future createTaskGroup(TaskGroup taskGroup) async {
+    final supabase = Supabase.instance.client;
+    await supabase.from('task_groups').insert(taskGroup.toMap());
+  }
 }

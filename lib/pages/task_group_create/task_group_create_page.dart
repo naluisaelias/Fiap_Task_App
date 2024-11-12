@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/models/task_group.dart';
 import 'package:todo_app/pages/task_group_create/widgets/colors_picker.dart';
+import 'package:todo_app/providers/task_group_provider.dart';
 
 class TaskGroupCreatePage extends StatefulWidget {
   const TaskGroupCreatePage({super.key, this.taskGroupForEdit});
@@ -40,7 +42,12 @@ class _TaskGroupCreatePageState extends State<TaskGroupCreatePage> {
                     style: Theme.of(context).textTheme.titleMedium),
                 const SizedBox(height: 10),
                 ColorPicker(
-                    selectedColor: selectedColor, onColorSelected: (color) {}),
+                    selectedColor: selectedColor, 
+                    onColorSelected: (color) {
+                      setState(() {
+                        selectedColor = color;
+                      });
+                    }),
               ],
             ),
           ),
@@ -79,5 +86,22 @@ class _TaskGroupCreatePageState extends State<TaskGroupCreatePage> {
     );
   }
 
-  Future<void> _submitForm() async {}
+  Future<void> _submitForm() async {
+    if (!formKey.currentState!.validate())
+    {
+      return;
+    }
+    final taskGroupProvider = context.read<TaskGroupProvider>();
+
+    final taskGroup = TaskGroup.create(
+      name: nameController.text, 
+      color: selectedColor.value,
+    );
+
+    await taskGroupProvider.createTaskGroup(taskGroup);
+
+    if (mounted) {
+      Navigator.of(context).pop();
+    }
+  }
 }

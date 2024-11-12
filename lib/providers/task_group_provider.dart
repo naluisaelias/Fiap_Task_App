@@ -25,4 +25,13 @@ class TaskGroupProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  Future<void> createTaskGroup(TaskGroup taskGroup) async {
+    try{
+      await _repo.createTaskGroup(taskGroup);
+      _taskGroupsWithCounts.add(TaskGroupWithCounts(taskGroup: taskGroup, totalTasks: 0, completedTasks: 0));
+    } catch (e){
+      print('Erro ao criar grupo de tarefas');
+    }
+  }
 }
