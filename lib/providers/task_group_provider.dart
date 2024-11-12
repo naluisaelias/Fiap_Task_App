@@ -34,4 +34,15 @@ class TaskGroupProvider extends ChangeNotifier {
       print('Erro ao criar grupo de tarefas');
     }
   }
+
+  Future<void> deleteTaskGroup(String groupId) async {
+    try{
+      await _repo.deleteTaskGroup(groupId);
+      _taskGroupsWithCounts.removeWhere((task) => task.taskGroup.id == groupId);
+      notifyListeners();
+    } catch (e){
+      print('Erro ao deletar grupo de tarefas');
+    }
+  }
+
 }
