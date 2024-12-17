@@ -50,7 +50,7 @@ Implementar funcionalidades adicionais em um aplicativo de gerenciamento de tare
 *  Ao realizar exclusão, o grupo deve ser removido da lista.
 * Confirme a exclusão com um ```AlertDialog``` antes de remover o grupo permanentemente.
 
- #### Tarefa 4: Marcar e Desmarcar Tarefa como concluída 
+#### Tarefa 04: Marcar e Desmarcar Tarefa como concluída 
 
 **Objetivo:** Implementar a funcionalidade de marcar uma tarefa como concluída ou não concluída. 
 
