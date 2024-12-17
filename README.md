@@ -1,16 +1,18 @@
-# todo_app
+# ✅ Task APP
 
-A new Flutter project.
+Gerenciador de tarefas em formato de checklist para organização de atividades diárias. O aplicativo permite criar, visualizar e gerenciar tarefas, agrupando-as de maneira prática e funcional, com uma interface intuitiva.
 
-## Getting Started
+Este projeto foi desenvolvido como parte do **Checkpoint 06** da disciplina **'Desenvolvimento Cross Platform'** ministrada pelo professor **Diego Camilo Martins Vieira**.
 
-This project is a starting point for a Flutter application.
+## 📲 Funcionalidades
+* **Gerenciamento de tarefas:** Criação, edição e exclusão de tarefas.
+* **Agrupamento por categorias:** Organização das tarefas em grupos.
+* **Visualização diária:** Exibição de tarefas específicas para cada dia, com seleção de datas via calendário.
+* **Modo claro e escuro:** Alternância automática entre temas para uma experiência personalizada.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## ⚙️ Tecnologias Utilizadas
+* **Flutter:** Framework para desenvolvimento do aplicativo multiplataforma.
+* **Dart:** Linguagem de programação utilizada no Flutter.
+* **Provider:** Gerenciamento de estado.
+* **Supabase:** Backend para autenticação e persistência de dados.
+* **Material Design 3:** Design system para uma interface moderna e consistente.
